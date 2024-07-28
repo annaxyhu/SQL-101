@@ -32,7 +32,7 @@ A database is an organized collection of data stored in a structured format. It 
 
 The `SELECT` statement allows you to select data (one or more columns) from one or more tables.
 
-**Syntax:**
+Syntax:
 
 ```sql
 SELECT
@@ -45,9 +45,9 @@ FROM
 - The result of a `SELECT` statement is called a result set
 - SELECT * selects data from all columns of the table. In practice, you should use the SELECT * for the ad-hoc queries only
 
-**Evaluation Order:** `FROM` -> `SELECT`
+Evaluation Order: `FROM` -> `SELECT`
 
-**Example:** The employees table has eight columns: employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, and jobTitle.
+Example: The employees table has eight columns: employeeNumber, lastName, firstName, extension, email, officeCode, reportsTo, and jobTitle.
 
 ```sql
 SELECT 
@@ -57,7 +57,7 @@ SELECT
 FROM
     employees
 ```
-**Output:**
+Output:
 
 ```sql
 | lastname  | firstname | jobtitle             |
@@ -74,7 +74,7 @@ FROM
 
 When querying data from a table, you may get duplicate rows. To remove these duplicate rows, a `DISTINCT` clause is used in the `SELECT` statement.
 
-**Syntax:**
+Syntax:
 
 ```sql
 SELECT DISTINCT
@@ -82,7 +82,7 @@ SELECT DISTINCT
 FROM
   table_name;
 ```
-**Evaluation order:** `FROM` -> `SELECT` -> `DISTINCT`
+Evaluation order: `FROM` -> `SELECT` -> `DISTINCT`
 
 ### SELECT Without Referencing a Table
 
@@ -108,7 +108,7 @@ Output:
 
 The `ORDER BY` clause sort the result set by one or more columns.
 
-**Syntax:**
+Syntax:
 
 ```sql
 SELECT
@@ -124,9 +124,9 @@ ORDER BY
 - If no order is specified, `ORDER BY` sorts the result set in ascending (`ASC`) order
 - In MySQL, `NULL` is alower than non-NULL values. When ordered by `ASC`, `NULL`s appear first in the result set 
 
-**Evaluation order:** `FROM` -> `SELECT` -> `DISTINCT` -> `ORDER BY`
+Evaluation order: `FROM` -> `SELECT` -> `DISTINCT` -> `ORDER BY`
 
-**Example:** 
+Example:
 
 ```sql
 SELECT 
@@ -139,7 +139,7 @@ ORDER BY
   reportsTo;
 ```
 
-**Output:**
+Output:
 ```sql
 
 | firstName | lastName  | reportsTo |
@@ -157,7 +157,7 @@ ORDER BY
 ### WHERE
 The WHERE clause allows you to specify a search condition for the rows returned by a query (filter rows by condition).
 
-**Syntax:**
+Syntax:
 
 ```sql
 SELECT
@@ -178,9 +178,9 @@ The following comparison operators can be use to form the search_condition expre
 5. `<=`: Less than or equal to
 6. `>=`: Greater than or equal to
   
-**Evaluation Order:** `FROM` -> `WHERE` -> `SELECT` -> `DISTINCT` -> `ORDER BY`
+Evaluation Order: `FROM` -> `WHERE` -> `SELECT` -> `DISTINCT` -> `ORDER BY`
 
-**Example:** 
+Example:
 
 ```sql
 SELECT 
@@ -194,7 +194,7 @@ WHERE
     jobtitle = 'Sales Rep'
 ```
 
-**Output:**
+Output:
 ```sql
 
 | lastname  | firstname | jobtitle  |
@@ -212,7 +212,7 @@ WHERE
 ### AND
 The `AND` operator can be used to combine multiple Boolean expressions to filter data. The AND operator returns true when both expressions are true; otherwise, it returns false.
 
-**Example:** 
+Example:
 ```sql
 SELECT 
     customername, 
@@ -226,7 +226,7 @@ WHERE
     state = 'CA' AND 
     creditlimit > 100000;
 ```
-**Output:**
+Output:
 ```sql
 | customername                 | country | state | creditlimit |
 |------------------------------|---------|-------|-------------|
@@ -238,7 +238,7 @@ WHERE
 
 The `OR` operator can be used to combine multiple Boolean expressions to filter data. The AND operator returns true when either expressions are true; otherwise, it returns false. SQL evaluates the OR operator after the AND operator if an expression contains both AND and OR operators.
 
-**Example:** 
+Example:
 ```sql
 SELECT    
 	customername, 
@@ -248,7 +248,7 @@ FROM
 WHERE country = 'USA' OR 
       country = 'France';
 ```
-**Output:**
+Output:
 ```sql
 | customername                 | country |
 |------------------------------|---------|
@@ -267,7 +267,7 @@ WHERE country = 'USA' OR
 ### IN/NOT IN
 Used in the WHERE clause, the IN operator allows you to determine if a value matches any value in a list of values.
 
-**Syntax:**
+Syntax:
 
 ```sql
 value IN (value1, value2, value3,...)
@@ -280,7 +280,7 @@ value NOT IN (value1, value2, value3,...)
 ### BETWEEN/NOT BETWEEN
 Used in the WHERE clause, the BETWEEN operator is a logical operator that tests whether a value is in a range or not. 
 
-**Syntax:**
+Syntax:
 ```sql
 value BETWEEN val1 AND val2;
 
@@ -292,7 +292,7 @@ value NOT BETWEEN val1 AND val2;
 ### LIKE/NOT LIKE
 Used in the WHERE clause, the LIKE operator is a logical operator that tests whether a string contains a specified pattern or not.
 
-**Syntax:**
+Syntax:
 
 ```sql
 expression LIKE pattern ESCAPE escape_character
@@ -306,7 +306,7 @@ expression NOT LIKE pattern ESCAPE escape_character
   - The underscore `_` wildcard matches any single character.
 - Adding the NOT clause negates the expression and returns TRUE if the string does not contain the specified pattern
 
-**Example:** This example uses the LIKE operator to find employees whose first names start with the letter a.
+Example: This example uses the LIKE operator to find employees whose first names start with the letter a.
 ```sql
 SELECT 
     employeeNumber, 
@@ -317,7 +317,7 @@ FROM
 WHERE
     firstName LIKE 'a%';
 ```
-**Output:**
+Output:
 ```sql
 | employeeNumber  | lastname  | firstname        |
 |-----------------|-----------|------------------|
@@ -329,7 +329,7 @@ WHERE
 
 The LIMIT clause is used in the SELECT statement to constrain the number of rows to return. 
 
-**Syntax:**
+Syntax:
 ```sql
 SELECT 
     select_list
@@ -340,7 +340,7 @@ LIMIT [offset,] row_count;
 - The offset specifies the offset of the first row to return. The offset of the first row is 0, not 1
 - The row_count specifies the maximum number of rows to return
 
-**Evaluation Order:** `FROM` -> `WHERE` -> `SELECT` -> `DISTINCT` -> `ORDER BY` ->`LIMIT`
+Evaluation Order: `FROM` -> `WHERE` -> `SELECT` -> `DISTINCT` -> `ORDER BY` ->`LIMIT`
 
 ### IS NULL/IS NOT NULL
 IS NULL is a comparison operator used to test whether a value is NULL or not. IS NOT NULL checks whether a value is not NULL. This operator can be used in the SELECT or WHERE clauses.
