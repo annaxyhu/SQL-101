@@ -4,7 +4,13 @@ Welcome to my SQL Study Notes repository! This collection is designed to serve a
 Feel free to explore, contribute, and use these notes as a handy reference for your SQL learning journey. Let's dive into the world of SQL together!
 
 ## Table of Contents
+1. [Introduction](#introduction)
+2. [Querying Data](#querying-data)
+3. [Sorting Data](#sorting-data)
+4. [Filtering Data](#filtering-data)
+5. [Joining Tables](#joining-tables)
 
+   
 ## Introduction
 ### What is SQL? 
 
@@ -290,6 +296,8 @@ Used in the WHERE clause, the LIKE operator is a logical operator that tests whe
 
 ```sql
 expression LIKE pattern ESCAPE escape_character
+
+expression NOT LIKE pattern ESCAPE escape_character
 ```
 
 - If the expression matches the pattern, the LIKE operator returns TRUE. Otherwise, it returns FALSE.
