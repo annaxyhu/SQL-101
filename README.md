@@ -3,6 +3,8 @@ Welcome to my SQL Study Notes repository! This collection is designed to serve a
 
 Feel free to explore, contribute, and use these notes as a handy reference for your SQL learning journey.
 
+Handy tip: drop down the outline (on the top right) for easier navigation!
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Querying Data](#querying-data)
