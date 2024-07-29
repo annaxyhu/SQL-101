@@ -516,9 +516,20 @@ query2;
 
 ## Common Table Expressions
 
+### Common Table Expressions
 
+A common table expression is a named temporary result set that exists solely within the execution scope of a single SQL statement, such as SELECT, INSERT, UPDATE, or DELETE. It can be used to break down complex queries into simpler, more manageable queries. 
 
+Syntax:
 
+```sql
+WITH cte_name (column_list) AS (
+    query
+)
+```
+- Define a CTE with the name `cte_name`. You can specify a list of columns that the CTE will have, but that is optional
+- The query result is what is stored in the CTE
+- An example of how you can use a CTE: `SELECT * FROM cte_name`
 
 
 
