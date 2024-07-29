@@ -1,4 +1,4 @@
-# SQL-101
+# SQL Quick Reference Guide
 Welcome to my SQL Study Notes repository! This collection is designed to serve as a quick reference guide for anyone interested in learning SQL, from beginners to those looking to refresh their knowledge. Note that the syntax in this guide is specific to MySQL. 
 
 Feel free to explore, contribute, and use these notes as a handy reference for your SQL learning journey.
