@@ -525,14 +525,18 @@ Syntax:
 ```sql
 WITH cte_name (column_list) AS (
     query
-)
+) SELECT...
 ```
 - Define a CTE with the name `cte_name`. You can specify a list of columns that the CTE will have, but that is optional
-- The query result is what is stored in the CTE
-- An example of how you can use a CTE: `SELECT * FROM cte_name`
+- The CTE does not get stored as a temp list or object, therefore you can only use a CTE immediately after it gets created
+- In MySQL, you cannot update/delete rows from a CTE
 
+## Misc FAQ
 
-
+### When to use single quotes, double quotes and backticks?
+- Backticks: table and column identifiers when the identifies is a reserved keyword OR when the identifiers contains white space or characters beyond a limited set
+- Single quotes: string literals, date literals
+- Double quotes: supported depending on the DBMS, but best practice is to avoid using it
 
 
 
